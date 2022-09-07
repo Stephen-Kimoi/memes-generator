@@ -1,41 +1,48 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* ======== HEADER STYLES ========= */ 
+header {
+  display: flex;
+  align-items: center;
+  height: 65px;
+  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+  color: white;
+  padding: 20px;
+}
+.header-img {
+  height: 100%;
+  margin-right: 6px;
+}
+.header-title {
+  font-size: 1.25rem;
+  margin-right: auto;
+}
+.header-description {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* ===== MEME COMPONENT STYLES ===== */
+.meme-container {
   padding: 2rem;
+}
+.form {
+  display: grid;
+  margin: 0 auto;
+  grid-template: 40px 40px / 1fr 1fr;
+  grid-gap: 10px;
+}
+.submit-button {
+  grid-column: 1 / -1;
+}
+.input {
+  height: 40px;
   text-align: center;
+  border-radius: 7px solid;
+  font-family: "Karla", sans-serif;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.submit-button {
+  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+  border: none; 
+  color: #fff;
+  font-family: "Karla", sans-serif;
+  cursor: pointer;
 }
