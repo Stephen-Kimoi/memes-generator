@@ -46,3 +46,13 @@ header {
   font-family: "Karla", sans-serif;
   cursor: pointer;
 }
+
+/* ===== MEME IMAGE STYLES ===== */ 
+.meme-div {
+  padding: 2rem;
+  height: 70vh;
+  margin: 0 auto;
+} 
+.meme-url {
+  max-width: 100%;  
+}
