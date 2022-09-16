@@ -18,13 +18,20 @@ header {
 .header-description {
   font-size: 0.75rem;
   font-weight: 500;
+  text-align: center; 
+  cursor: pointer;
+}
+.header-description:hover {
+  color: #3a0f49;
 }
 
 /* ===== MEME COMPONENT STYLES ===== */
 .meme-container {
   padding: 2rem;
+  height: 100vh;
 }
 .form {
+  width: 100%;
   display: grid;
   margin: 0 auto;
   grid-template: 40px 40px / 1fr 1fr;
@@ -38,6 +45,7 @@ header {
   text-align: center;
   border-radius: 7px solid;
   font-family: "Karla", sans-serif;
+  width: 100%;
 }
 .submit-button {
   background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
@@ -56,7 +64,7 @@ header {
   position: relative;
 } 
 .meme-url {
-  max-width: 100%;  
+  width: 100%;  
   border-radius: 3px;
 }
 .meme-text {
@@ -88,4 +96,24 @@ header {
 }
 .top {
   top: 0;
+}
+
+/* ===== INSTRUCTIONS PAGE ===== */ 
+.instructions-container {
+  text-align: center;
+  width: 100%; 
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  font-size: 1.5rem;
+}
+
+/* ======= FOOTER STYLES ===== */ 
+footer { 
+  width: 100%; 
+  color: white; 
+  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+  top: 0; 
+  bottom: 0;
 }
