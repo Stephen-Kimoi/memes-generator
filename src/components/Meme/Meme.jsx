@@ -1,22 +1,28 @@
-import React,{useState} from 'react'
-import memesData from '../../Data/memesData'
+import React,{useEffect, useState} from 'react'
+import startImage from '../assets/meme2.jpg'
+
+const api = "https://api.imgflip.com/get_memes"; 
 
 const Meme = () => { 
 
   const [meme, setMeme] = useState({
     topText: "", 
     bottomText: "", 
-    randomImage: "http://i.imgflip.com/1bij.jpg", 
+    randomImage: startImage, 
   }); 
 
-  const [allMemeImages, setAllMemeImages] = useState([memesData]); 
+  const [allMemes, setAllMemes] = useState([]); 
 
-  // const [formInput, setFormInput] = useState({
-  //   topText: "", 
-  //   bottomText: ""
-  // })
+  const [loader, setLoader] = useState(false)
 
-  // console.log(formInput)
+  useEffect( () => {
+    fetch(api) 
+    .then( response => response.json()) 
+    .then( data => {
+      const { memes } = data.data 
+      setAllMemes(memes)
+    })
+  }, []) 
 
   const handleChange = (event) => {
       const {name, value} = event.target
@@ -30,7 +36,8 @@ const Meme = () => {
   }
 
   const handleButton = (event) => {
-    const memesArray = allMemeImages[0].data.memes
+    setLoader(true)
+    const memesArray = allMemes
     const randomNumber = Math.floor(Math.random() * memesArray.length) 
     const url = memesArray[randomNumber].url
     const {name, value} = event.target
@@ -40,6 +47,8 @@ const Meme = () => {
         [name]: value, 
         randomImage: url
     }))
+
+    setLoader(false)
 
   }
 
@@ -69,9 +78,18 @@ const Meme = () => {
        </div>
 
        <div className='meme-div'>
-           <img src={meme.randomImage} alt="meme" className='meme-url'/>
-           <h2 className='meme-text top'>{meme.topText}</h2> 
-           <h2 className='meme-text bottom'>{meme.bottomText}</h2>
+          {
+            loader ? 
+              <div>
+                <h1>Loading</h1>
+              </div> 
+              : 
+              <>
+                <img src={meme.randomImage} alt="meme" className='meme-url'/>
+                <h2 className='meme-text top'>{meme.topText}</h2> 
+                <h2 className='meme-text bottom'>{meme.bottomText}</h2>
+              </>
+          }
        </div>
 
 
